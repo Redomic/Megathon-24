@@ -1,0 +1,32 @@
+.bottom-right {
+  position: absolute;
+  bottom: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  z-index: 10; /* Ensure it's above other elements */
+}
+
+.bottom-right button {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Optional: semi-transparent background */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Optional: rounded corners */
+  padding: 10px; /* Space around the SVG */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: flex; /* Flexbox for centering */
+  align-items: center; /* Vertically center the SVG */
+  justify-content: center; /* Horizontally center the SVG */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.bottom-right button svg {
+  height: 25px; /* Increase height as needed */
+  width: 25px; /* Increase width as needed */
+}
+
+.bottom-right button:hover {
+  background-color: var(--primary);
+}

@@ -1,0 +1,183 @@
+.top-bar-container {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 3rem 1rem 1rem;
+  overflow: visible;
+  gap: 0.5rem;
+}
+
+.top-bar-menu {
+  background-color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  border-radius: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  height: 40px;
+  width: 40px;
+  border: none;
+}
+
+.top-bar-filters {
+  background-color: var(--primary);
+  z-index: 1;
+  height: 40px;
+  font-size: 0.9rem;
+  border-radius: 0.8rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: white;
+  font-weight: 500;
+  /* width: 40px; */
+  border: none;
+}
+
+/* Dropdown menu styles */
+.layer-dropdown {
+  position: absolute;
+  top: 64px; /* Adjust based on your layout */
+  left: 4rem;
+  background-color: var(--primary);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  padding: 1rem 1rem 0rem 1rem;
+  width: 200px;
+
+  /* Add fade animation */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px); /* Slight upward movement */
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s; /* Delay hiding */
+}
+
+.layer-dropdown.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* Dropdown moves into place */
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0s; /* Remove hiding delay */
+}
+
+.layer-dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.layer-dropdown ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.layer-dropdown ul li label {
+  color: white;
+  font-weight: 500;
+}
+
+.layer-dropdown ul li input {
+  margin-right: 0.5rem;
+}
+
+.layer-dropdown label {
+  display: inline-block;
+  position: relative;
+  padding-left: 50px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.layer-dropdown input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.layer-dropdown input:checked ~ .checkbox__checkmark {
+  background-color: var(--blue);
+}
+
+.layer-dropdown input:checked ~ .checkbox__checkmark:after {
+  left: 21px;
+}
+
+.layer-dropdown:hover input ~ .checkbox__checkmark {
+  background-color: #eee;
+}
+
+.layer-dropdown:hover input:checked ~ .checkbox__checkmark {
+  background-color: var(--blue);
+}
+
+.layer-dropdown .checkbox__checkmark {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  height: 22px;
+  width: 40px;
+  background-color: #eee;
+  transition: background-color 0.25s ease;
+  border-radius: 11px;
+}
+
+.layer-dropdown .checkbox__checkmark:after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 16px;
+  height: 16px;
+  display: block;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: left 0.25s ease;
+}
+
+.layer-dropdown .checkbox__body {
+  color: white;
+  line-height: 1.4;
+  font-size: 16px;
+  transition: color 0.25s ease;
+}
+
+.search-bar {
+  height: 40px;
+  display: flex;
+  width: 40rem;
+  /* padding-left: 1rem; */
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.search-bar input {
+  width: 100%;
+  height: 100%;
+  /* border: 2px solid #2e2e2e; */
+  border: none;
+  background-color: var(--primary);
+  border-radius: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0 1.5rem 0 2.5rem;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56.966 56.966' fill='%23717790c7'%3e%3cpath d='M55.146 51.887L41.588 37.786A22.926 22.926 0 0046.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 00.083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z'/%3e%3c/svg%3e");
+  background-size: 1rem;
+  background-repeat: no-repeat;
+  background-position: 1rem 48%;
+  color: white;
+}
+
+.bottom-bar-container {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  bottom: 3rem;
+}
