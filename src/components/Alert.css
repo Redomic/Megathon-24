@@ -1,0 +1,59 @@
+/* src/FloatingMessageContainer.css */
+.floating-message-container {
+  position: fixed; /* Keeps it fixed on the screen */
+  width: 100%;
+  /* height: 100%; */
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999; /* Ensures it overlays other elements */
+  pointer-events: none; /* Allows clicks to pass through except for the alert */
+  display: flex;
+  align-items: center;
+}
+
+/* src/FloatingMessage.css */
+.floating-message {
+  pointer-events: auto; /* Allows interaction within the alert */
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  background-color: var(--primary);
+  border: 2px solid rgba(141, 141, 141, 0.1);
+  color: white;
+  padding: 16px;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateX(-100%); /* Starts off-screen */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  width: 300px;
+}
+
+.floating-message.show {
+  opacity: 1;
+  transform: translateX(0); /* Slides in from the left */
+}
+
+/* Styling for the message body and icon */
+.floating-message .msg-body {
+  flex-grow: 1;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.floating-message .msg-body h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.floating-message .msg-body p {
+  margin: 0;
+  font-size: 13px;
+  color: #a0aec0;
+}
+
+.floating-message i {
+  font-size: 50px;
+  color: var(--red); /* Customize icon color based on message type */
+  padding-right: 8px;
+}

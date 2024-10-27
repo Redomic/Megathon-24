@@ -92,6 +92,11 @@
   transform-origin: top right;
 }
 
+.node-info.show {
+  opacity: 1;
+  transform: translateX(0); /* Slides in from the left */
+}
+
 .node-info__header {
   display: flex;
   /* justify-content: center; */

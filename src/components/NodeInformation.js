@@ -1,8 +1,11 @@
 import React from "react";
 import "./NodeInformation.css";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 const NodeInformation = ({ isMoreInfo = false }) => {
+  const visible = useSelector((state) => state.common.alert);
+
   const colorHandler = (node) => {
     if (node.flag === "Normal") {
       return node.rating >= 5.0 ? "normal" : "suspicious";
@@ -37,43 +40,12 @@ const NodeInformation = ({ isMoreInfo = false }) => {
     }
   };
 
-  function generateRandomIP() {
-    const octet = () => Math.floor(Math.random() * 256);
-    return `${octet()}.${octet()}.${octet()}.${octet()}`;
-  }
-
-  const indianNames = [
-    "Aarav",
-    "Aditi",
-    "Arjun",
-    "Ananya",
-    "Dhruv",
-    "Ishaan",
-    "Kavya",
-    "Neha",
-    "Rohan",
-    "Saanvi",
-    "Vivek",
-    "Priya",
-  ];
-
-  const generateRandomInfo = () => {
-    const generateRandomPhoneNumber = () => {
-      let phoneNumber = "9"; // Most Indian mobile numbers start with 9
-      for (let i = 0; i < 9; i++) {
-        phoneNumber += Math.floor(Math.random() * 10);
-      }
-      return phoneNumber;
-    };
-
-    const randomName =
-      indianNames[Math.floor(Math.random() * indianNames.length)];
-    return { name: randomName, phone: generateRandomPhoneNumber() };
-  };
+  // Only render the component if `visible` is true
+  if (!visible) return null;
 
   return (
     <div className="node-info-container">
-      <div className="node-info">
+      <div className={`node-info`}>
         <div className="node-info__header">
           <h2>Flood / Drought</h2>
           {!isMoreInfo ? (
@@ -98,7 +70,7 @@ const NodeInformation = ({ isMoreInfo = false }) => {
           <div className="single-chart">
             <svg viewBox="0 0 36 36" className="circular-chart normal">
               <path
-                className="circle-bg"
+                className="circle-bg "
                 d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"
               />
               <path
@@ -107,10 +79,10 @@ const NodeInformation = ({ isMoreInfo = false }) => {
                 d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"
               />
               <text x="18" y="20.35" className="percentage">
-                Rating
+                Prone
               </text>
               <text x="18" y="25" className="bottom-text">
-                Accuracy
+                Region
               </text>
             </svg>
           </div>
@@ -121,7 +93,7 @@ const NodeInformation = ({ isMoreInfo = false }) => {
             <h5>Region Information</h5>
           </div>
           <div className="node-info__info-container">
-            <span>Probability: </span>
+            <span>Probability: 86%</span>
           </div>
         </div>
 
@@ -130,10 +102,10 @@ const NodeInformation = ({ isMoreInfo = false }) => {
             <h5>Model Information</h5>
           </div>
           <div className="node-info__info-container">
-            <span>Accuracy: </span>
-            <span>Recall: </span>
-            <span>Precision: </span>
-            <span>Execution Time: </span>
+            <span>Accuracy: 91%</span>
+            <span>Recall: 0.92</span>
+            <span>Precision: 0.90</span>
+            <span>Execution Time: ---</span>
           </div>
         </div>
 

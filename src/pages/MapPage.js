@@ -8,6 +8,7 @@ import NodeInformation from "../components/NodeInformation";
 import GEEMap from "../components/GEEMap";
 
 import { setDropDown, toggleLayerVisibility } from "../store/slices/common";
+import Alert from "../components/Alert";
 
 const MapComponent = () => {
   const [range, setRange] = useState({
@@ -35,6 +36,7 @@ const MapComponent = () => {
   return (
     <div>
       <NodeInformation />
+      <Alert />
       <div className="top-bar-container">
         <button className="top-bar-menu">
           <svg

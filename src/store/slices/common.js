@@ -8,6 +8,7 @@ const initialState = {
     dragging: false,
   },
   dropdown: null,
+  alert: false,
   layers: {},
   poi: [],
 };
@@ -28,6 +29,9 @@ export const commonSlice = createSlice({
     },
     setDragging: (state, action) => {
       state.canvas.dragging = action.payload;
+    },
+    setAlert: (state, action) => {
+      state.alert = action.payload;
     },
     addLayer: (state, action) => {
       const { layerName } = action.payload;
@@ -51,6 +55,7 @@ export const {
   setDropDown,
   setPosition,
   setDragging,
+  setAlert,
   addLayer,
   toggleLayerVisibility,
   setPOI,
